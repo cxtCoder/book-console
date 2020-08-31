@@ -1,0 +1,857 @@
+/*
+
+-------------------------------------------
+::          Theme Setting                ::
+-------------------------------------------
+
+
+::  1.0 General Reset & Setup
+-------------------------------------------
+    1.0 Reset and overrides
+
+
+::  2.0 Predefined CSS Setting
+-------------------------------------------
+    2.0 Predefined Classes
+
+
+::  3.0 Page Structure Settings
+-------------------------------------------
+    3.0 Page Options
+
+
+::  4.0 Component UI
+-------------------------------------------
+    4.1 Component - Form
+    4.2 Component - Select
+    4.3 Component - Search Group
+    4.4 Component - Dropdown Menu
+    4.5 Component - Button
+    4.6 Component - Radio & Checkbox
+    4.7 Component - Spinner
+    4.8 Component - Time Picker & Date Picker
+    4.9 Component - Tag
+    4.10 Component - Badge
+    4.11 Component - Table Default
+    4.12 Component - Pagination
+    4.13 Component - Button Group
+    4.14 Component - Panel
+    4.15 Component - Sign
+    4.16 Component - Caret
+    4.17 Component - Modal
+
+
+::  5.0 Custom Settings
+-------------------------------------------
+    5.1 Custom - Gary Bar
+    5.2 Custom - Flow (flow-item)
+    
+
+*/
+
+
+
+/* -------------------------------
+   1.0 General Reset & Setup
+------------------------------- */
+
+/* 1.0 Reset and overrides */
+
+a {
+    text-decoration: none!important;
+}
+
+/* -------------------------------
+   2.0 Predefined CSS Setting
+------------------------------- */
+
+/* 2.0 Predefined Classes */
+
+.text-blue {
+    color: #348FE2!important;
+}
+.text-red {
+    color: #D0021B!important;
+}
+.text-999 {
+    color: #999!important;
+}
+.dis-b {
+    display: block!important;
+}
+.dis-ib {
+    display: inline-block!important;
+}
+.pos-a {
+    position: absolute!important;
+}
+.pos-r {
+    position: relative!important;
+}
+
+/* -------------------------------
+   3.0 Page Structure Settings
+------------------------------- */
+
+/* 3.0 Page Options */
+
+.navbar-brand {
+    margin: 8px 20px 0 4px!important;
+    font-weight: 700;
+}
+.navbar-brand:hover {
+    color: #fff;
+}
+.navbar-brand > img {
+    display: inline-block;
+    margin-right: 5px;
+}
+.sidebar .nav > li > a {
+    color: #E0E3EB;
+}
+.sidebar .nav > li.expand > a, 
+.sidebar .nav > li > a:hover, 
+.sidebar .nav > li > a:focus {
+    background: transparent;
+}
+.sidebar .sub-menu > li > a {
+    font-weight: normal;
+}
+.sidebar .sub-menu > li.active > a {
+    background: #17263C;
+}
+.sidebar .sub-menu > li.active > a:before {
+    background: #4A95FB;
+    border-color: #4A95FB;
+}
+.sidebar .sub-menu > li > a .badge {
+    float: right;
+    margin: 9px 15px 0 0;
+}
+.page-sidebar-minified .sidebar {
+    position: fixed;
+}
+.page-sidebar-minified .sidebar .nav li.has-sub > .sub-menu {
+    width: 135px;
+}
+.page-sidebar-minified .sidebar .sub-menu > li > a .badge {
+    margin-right: 0;
+}
+
+/* -------------------------------
+   4.0 Component UI
+------------------------------- */
+
+/* 4.1 Component - Form */
+
+.u-control-label {
+    padding-right: 0;
+    font-weight: normal;
+    color: #373A3C;
+}
+.u-form-control {
+    height: 32px;
+    color: #333;
+    font-size: 12px;
+    box-shadow: none;
+}
+.u-form-control:hover {
+    border-color: #86B6F3;
+}
+.u-form-control:focus {
+    border-color: #348FE2;
+    box-shadow: none;
+}
+.u-form-control[disabled] {
+    color: #666;
+    background: #f7f7f7;
+    border-color: #eaeaea;
+}
+.u-form-control.error,
+.u-form-control.error:focus {
+    height: 32px;
+    border-color: #FF5C57;
+    box-shadow: none;
+}
+.form-control-xs {
+    height: 22px;
+    padding: 2px 8px;
+    border-radius: 2px;
+}
+.text-control {
+    display: inline-block;
+    padding-top: 7px;
+    color: #333;
+}
+
+/* 4.2 Component - Select */
+
+.select { 
+    position: relative;
+}
+.select .select-selection {
+    display: block;
+    line-height: 1.42857143;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+}
+.select .select-selection:hover {
+    border-color: #86B6F3;
+}
+.select .select-selection input {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.select .select-selection .select-placeholder {
+    color: #999;
+}
+.select .select-selection .select-value {
+    height: 17px;
+    overflow: hidden;
+    color: #333;
+}
+.select .select-selection .caret {
+    color:  #373A3C;
+}
+.select .dropdown-menu {
+    width: 100%;
+    min-width: 0;
+}
+.select-visible .select-selection,
+.select-visible .select-selection:hover {
+    border-color: #348FE2;
+}
+.select-visible .select-selection .caret {
+    border-bottom: 4px solid;
+    border-top: 0;
+}
+
+/* select-single */
+
+.select-single .select-selection {
+    height: 32px;
+    padding: 6px 22px 6px 12px;
+} 
+.select-single .btn-select-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    margin: 0;
+    padding-top: 14px;
+}
+
+/* select-size */
+
+.select-xs .select-selection {
+    height: 22px;
+    padding: 2px 15px 2px 8px;
+}
+.select-xs.select-single .btn-select-arrow {
+    padding: 9px 4px 5px 4px;
+}
+
+/* 4.3 Component - Search Group */
+
+.search-group {
+    display: inline-block;
+    position: relative;
+}
+.search-group .form-control {
+    min-width: 200px;
+    padding-right: 24px;
+}
+.search-group .btn-search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 32px;
+    padding: 4px 5px 5px 5px;
+    background: transparent;
+    border-radius: 0 4px 4px 0;
+    box-shadow: none;
+    outline: none;
+}
+.search-group .btn-search:active:focus {
+    outline: none;
+}
+.search-group .btn-search i.icon-search {
+    color: #348FE2;
+}
+.search-group .btn-search:hover i.icon-search {
+    color: #4FA2F0;
+}
+.search-group .btn-search:active i.icon-search {
+    color: #2F80CC;
+}
+
+/* 4.4 Component - Dropdown Menu */
+
+.u-dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+    border: solid 1px #ccc;
+    box-shadow: none;
+    font-size: 12px;
+}
+.u-dropdown-menu > li > a {
+    padding: 5px 15px 5px 20px;
+    line-height: 20px;
+}
+.u-dropdown-menu > .active > a, 
+.u-dropdown-menu > .active > a:focus, 
+.u-dropdown-menu > .active > a:hover {
+    background-color: #348FE2;
+}
+.u-dropdown-menu .divider {
+    margin: 5px 0;
+}
+.dropdown-menu-xs > li > a {
+    padding: 0 15px 0 20px;
+}
+
+/* 4.5 Component - Button */
+
+.u-btn-default { 
+
+}
+.u-btn-default:hover {
+    background: #f5f5f5;
+    border-color: #ccc;
+}
+.u-btn-default:active:focus,
+.u-btn-default:focus {
+    background: #e6e6e6;
+    border-color: #ccc;
+    box-shadow: none;
+    outline: none;
+}
+.u-btn-default[disabled] {
+    color: #ccc;
+    opacity: 1;
+}
+.u-btn-primary {
+    color: #fff;
+    background-color: #348FE2;
+    border-color: #348FE2;
+}
+.u-btn-primary:hover {
+    background-color: #4FA2F0;
+    border-color: #4FA2F0;
+}
+.u-btn-primary:active:focus,
+.u-btn-primary:focus,
+.open > .dropdown-toggle.u-btn-primary,
+.open > .dropdown-toggle.u-btn-primary:hover,
+.open > .dropdown-toggle.u-btn-primary:focus {
+    background: #2F80CC;
+    border-color: #2F80CC;
+    outline: none;
+}
+.u-btn-primary[disabled],
+.u-btn-primary[disabled]:hover {
+    background: #348FE2;
+    border-color: #348FE2;
+    color: #91C3F2;
+    opacity: 1;
+}
+.btn-circle {
+    border-radius: 40px;
+}
+
+/* 4.6 Component - Radio & Checkbox */
+
+.u-radio-inline label,
+.u-checkbox-inline label {
+    font-weight: normal;
+}
+.u-radio input[type=radio],
+.u-radio-inline input[type=radio],
+.u-checkbox input[type=checkbox],
+.u-checkbox-inline input[type=checkbox] {
+    margin-top: 1px;
+}
+
+/* 4.7 Component - Spinner */
+
+.spinner {
+    display: table;
+    position: relative;
+    border-collapse: separate;
+}
+.spinner .input-group-addon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 32px;
+    border: 1px solid #b8b8b8;
+    border-radius: 0 4px 4px 0;
+    background: transparent;
+}
+.spinner .input-group-addon a:focus i,
+.spinner .input-group-addon a:hover i {
+    color: #348FE2;
+}
+.spinner .input-group-addon a.spin-up,
+.spinner .input-group-addon a.spin-down {
+    position: absolute;
+    right: 9px;
+    color: #333;
+    font-size: 11px;
+}
+.spinner .input-group-addon a.spin-up {
+    top: 4px;
+}
+.spinner .input-group-addon a.spin-down {
+    bottom: 4px;
+}
+
+/* 4.8 Component - Time Picker & Date Picker */
+
+.time-picker {
+
+}
+.date-picker {
+
+}
+.time-picker-selection,
+.date-picker-selection {
+    position: relative;
+}
+.time-picker-selection .btn-select-arrow,
+.date-picker-selection .btn-select-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 10px;
+}
+.time-picker-selection .btn-select-arrow i.icon-time,
+.data-picker-selection .btn-select-arrow i.icon-calendar {
+    font-size: 18px;
+    line-height: 20px;
+}
+    
+/* 4.9 Component - Tag */
+
+.tagit {
+    padding-left: 0;
+    overflow: auto;
+    margin-bottom: 0;
+}
+.tagit li {
+    float: left;
+    padding: 4px 12px 3px 12px;
+    margin: 2px 5px 2px 0;
+    list-style: none;
+    background:  #EAEEF0;
+    border-radius: 2px;
+    border: solid 1px #EAEEF0;
+}
+.tagit li span.tagit-label {
+    color: #333;
+    line-height: 18px;
+}
+.tagit li a.tagit-close {
+    float: right;
+    margin: 0 -4px 0 4px;
+    cursor: pointer;
+}
+.tagit li a.tagit-close span {
+    font-size: 13px;
+    color: #979797;
+}
+.tagit li.tagit-add {
+    padding-left: 0;
+    padding-right: 0;
+    border: dashed 1px #ccc; 
+    background: transparent;
+}
+.tagit li.tagit-add a {
+    padding: 4px 18px 3px 18px;
+}
+.tagit li.tagit-add i.icon-add {
+    font-size: 12px;
+    color: #ddd;
+}
+.tagit li.edit {
+    padding: 0;
+    border: none;
+}
+.tagit li.edit input {
+    width:162px;
+    height: 27px;
+    border-radius: 2px;
+}
+
+/* 4.10 Component - Badge */  
+
+.u-badge {
+    padding: 3px 6px;
+    color: #2C354B;
+    background: #4A95FB;
+    font-weight: normal;
+} 
+
+/* 4.11 Component - Table Default */
+
+.table-default {
+    
+}
+.table-default > thead > tr > th {
+    height: 44px;
+    background: #EAEEF0;
+    border-bottom: 0;
+    font-weight: 700;
+    color: #333;
+}
+.table-default > thead > tr > th,
+.table-default > tbody > tr > td {
+    padding: 10px 0;
+}
+.table-default > tbody > tr > td {
+    height: 50px;
+    color: #373A3C;
+    border-top: 0;
+    border-bottom: 1px solid #ddd;
+}
+.table-default > thead > tr > th > div,
+.table-default > tbody > tr > td > div {
+    padding: 0 10px;
+}
+.table-default > thead > tr > th > div {
+    line-height: 22px;
+}
+.table-default > thead > tr > th > div a.sort {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #333;
+}
+.table-default > thead > tr > th > div a.sort i {
+    font-size: 12px;
+}
+.table-default > thead > tr > th > div a.sort i:hover {
+    color: #666;
+}
+.table-default > tbody > tr > td > div {
+    line-height: 30px;
+}
+.table-default > tbody > tr:hover {
+    background: #EAEEF0;
+}
+.table-default > tbody > tr:hover > td {
+    color: #2A2C2E;
+    font-weight: 700;
+}
+.table-default > tbody > tr:hover > td div.operate {
+    font-weight: normal;
+}
+.table-default > tbody div.operate a {
+    color: #373A3C;
+    margin-right: 20px;
+}
+.table-default > tbody div.operate a > i {
+    font-size: 14px;
+    color: #348FE2;
+    margin-right: 4px;
+}
+
+/* 4.12 Component - Pagination */
+
+.u-pagination {
+    margin-top: 0;
+}
+.u-pagination > li > a, 
+.u-pagination > li > span {
+    background: #FFFFFF;
+    border: 1px solid #ECEEEF;
+    color: #666;
+}
+.u-pagination > li > a:hover {
+    background: #f5f5f5;
+    color: #666;
+}
+.u-pagination > li > a:focus,
+.u-pagination > li.active > a, 
+.u-pagination > li.active > span,
+.u-pagination > li.active > a:hover,
+.u-pagination > li.active > a:focus {
+   background: #348FE2;
+   border-color: #348FE2;
+   color: #fff;
+}
+.pagination-goto {
+    float: right;
+    height: 33px;
+    line-height: 33px;
+    margin-left: 5px;
+}
+.pagination-goto input {
+    display: inline-block;
+    width: 30px;
+    height: 33px;
+    line-height: 33px;
+    background: #FFFFFF;
+    border: 1px solid #ECEEEF;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0 5px;
+    padding: 0;
+}
+
+/* 4.13 Component - Button Group */
+
+.u-btn-group,
+.u-btn-group-vertical {
+    position: relative;
+    padding: 3px 2px 3px 1px;
+    background: #348FE2;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+}
+.u-btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle),
+.u-btn-group>.btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.u-btn-group-vertical .btn:first-child:not(:last-child),
+.u-btn-group-vertical>.btn-group:not(:first-child):not(:last-child)>.btn,
+.u-btn-group-vertical>.btn:last-child:not(:first-child),
+.u-btn-group-vertical>.btn:not(:first-child):not(:last-child) {
+    border-radius: 4px;
+}
+.u-btn-group .btn-primary,
+.u-btn-group-vertical .btn-primary {
+    color: #fff;
+    background-color: #348FE2;
+    border-color: #348FE2;
+}
+.u-btn-group .btn-primary:hover,
+.u-btn-group .btn-primary:focus,
+.u-btn-group-vertical .btn-primary:hover,
+.u-btn-group-vertical .btn-primary:focus,
+.u-btn-group-vertical .open > .dropdown-toggle.btn-primary,
+.u-btn-group-vertical .open > .dropdown-toggle.btn-primary:hover,
+.u-btn-group-vertical .open > .dropdown-toggle.btn-primary:focus {
+    background: #276FB3;
+    border-color: #276FB3;
+    outline: none;
+}
+.u-btn-group>.btn:not(:last-child) {
+    margin-right: 4px;
+}
+.u-btn-group .btn-fixed {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background: #2C7AC2;
+}
+.u-btn-group .btn-fixed:hover,
+.u-btn-group .btn-fixed:focus {
+    background: #2568A8;
+}
+.u-btn-group-vertical>.btn:not(:last-child),
+.u-btn-group-vertical>.btn-group:not(:last-child) {
+    margin-bottom: 4px;
+}
+.u-btn-group-vertical .btn-group {
+    position: relative;
+}
+.u-btn-group-vertical .caret-br {
+    position: absolute;
+    right: 1px;
+    bottom: 3px;
+}
+
+/* 4.14 Component - Panel */
+
+.u-panel {
+    border: 1px solid #CCC;    
+}
+.u-panel .panel-heading {
+    height: 34px;
+    background: #FFF;
+}
+.u-panel .panel-heading .panel-title {
+    font-size: 14px;
+}
+
+/* 4.15 Component - Sign */
+
+.sign {
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+.sign-default {
+    background-color: #999;
+}
+.sign-primary {
+    background-color: #008BFF;
+}
+.sign-success {
+    background-color: #00CF69;
+}
+.sign-danger {
+    background-color: #FB292B;
+}
+.sign-default-circle,
+.sign-primary-circle,
+.sign-success-circle,
+.sign-danger-circle {
+    width: 12px;
+    height: 12px;
+    vertical-align: text-top;
+}
+.sign-default-circle {
+    border: 2px solid #EAEEF0;
+}
+.sign-primary-circle {
+    border: 2px solid #E7F3FF;
+}
+.sign-success-circle {
+    border: 2px solid #DCFAEB;
+}
+.sign-danger-circle {
+    border: 2px solid #FFE6E8;
+}
+.sign-group {
+
+}
+.sign-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sign-group > li {
+    float: left;
+    margin-right: 20px;
+    color: #666;
+}
+
+/* 4.16 Component - Caret */
+
+.caret-up {
+    display: inline-block;
+    border-bottom: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+.caret-br { 
+    display: inline-block;
+    border-bottom: 4px solid;
+    border-left: 4px solid transparent;
+}
+
+/* 4.17 Component - Modal */
+
+.u-modal .modal-header {
+    height: 40px;
+    color: #333;
+    padding: 10px 16px 0 14px;
+}
+.u-modal .modal-header h4 {
+    font-size: 14px;
+}
+.u-modal .modal-header .close {
+    outline: none;
+}
+.u-modal .prompt-info {
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 28px;
+    color: #373A3C;
+}
+
+/* 4.18 Component - Close */
+
+.u-close:hover {
+    opacity: 1;
+}
+.u-close:focus span,
+.u-close:hover span,
+.u-close:focus i,
+.u-close:hover i {
+    color: #444!important;
+}
+
+/* -------------------------------
+   5.0 Custom Settings
+------------------------------- */
+
+/* 5.1 Custom - Gary Bar */
+
+.gary-bar {
+    width: fit-content;
+    padding: 4px 6px;
+    background: #EAEEF0;
+    border-radius: 2px;
+}
+.gary-bar.active {
+    border: solid 1px #348FE2;
+}
+
+/* 5.2 Custom - Flow (flow-item) */
+
+.flow-item {
+    min-height: 30px;
+    border-radius: 4px;
+    display: inline-block;
+    padding-right: 8px;
+}
+.flow-item > span {
+    height: 100%;
+    display: inline-block;
+    color: #fff;
+    padding: 7px 8px;
+    margin-right: 8px;
+}
+.flow-item-default {
+    background: #EAEEF0;
+    color: #666;
+}
+.flow-item-default > span {
+    background: #999999;
+    border-radius: 4px 0 0 4px;
+}
+.flow-item-primary {
+    background: #E7F3FF;
+    color: #666;
+}
+.flow-item-primary > span {
+    background: #348FE2;
+    border-radius: 4px 0 0 4px;
+}
+.flow-item-success {
+    background: #DCFAEB;
+    color: #666;
+}
+.flow-item-success > span {
+    background: #00CF69;
+    border-radius: 4px 0 0 4px;
+}
+.flow-item-danger {
+    background: #FFE6E8;
+    color: #666;
+}
+.flow-item-danger > span {
+    background: #F06373;    
+    border-radius: 4px 0 0 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
