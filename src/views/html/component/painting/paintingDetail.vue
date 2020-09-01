@@ -82,7 +82,29 @@
             <el-col>
                 <div class="book-info"><span>书画简介</span></div>
                 <div class="book-tab" style="padding: 10px">
-                    <p v-if="data.summary.length > 0">{{ data.summary }}</p>
+                    <div v-if="summary.length > 0">
+                        <div v-if="showSummaryType == 0">
+                            <p v-for="(item, index) in summary" :key="index">
+                                <span>{{ item }}</span>
+                            </p>
+                        </div>
+                        <div v-if="showSummaryType == 1">
+                            <p v-for="(item, index) in summary" :key="index">
+                                <span v-if="index == summary.length - 1">{{ item }}...
+                                    <a @click="summaryOperate(2)" style="margin-left: 15px; color: rgb(0, 132, 255)">展开↓</a>
+                                </span>
+                                <span v-else>{{ item }}</span>
+                            </p>
+                        </div>
+                        <div v-if="showSummaryType == 2">
+                            <p v-for="(item, index) in summary" :key="index">
+                                <span v-if="index == summary.length - 1">{{ item }}
+                                    <a @click="summaryOperate(1)" style="margin-left: 15px; color: rgb(0, 132, 255)">收起↑</a>
+                                </span>
+                                <span v-else>{{ item }}</span>
+                            </p>
+                        </div>
+                    </div>
                     <div v-else style="text-align: center; padding: 12px"><span>暂无数据</span></div>
                 </div>
             </el-col>
@@ -120,10 +142,16 @@
                 thumbPrefix: thumbPrefix,
                 imgVisible: false,
                 defaultImg: defaultImg,
-                previewImgUrl: ''
+                previewImgUrl: '',
+                summaryPart: [],
+                summaryAll: [],
+                summary: [],
+                showSummaryType: 0,
+                showLength: 180
             }
         },
         created() {
+            this.handleSummary();
         },
         methods: {
             async previewImg(imgUrl) {
@@ -134,6 +162,31 @@
                     this.previewImgUrl = defaultImg;
                 }
                 this.imgVisible = true;
+            },
+            handleSummary() {
+                this.showSummaryType = 0;
+                this.summary = [];
+                var summary = this.data.summary;
+                if (summary == "" || summary == null) {
+                    return;
+                }
+                if (summary.length > this.showLength) {
+                    this.summaryAll = summary.split('\n');
+                    this.summaryPart = summary.substring(0, this.showLength).split('\n');
+                    this.summary = this.summaryPart;
+                    this.showSummaryType = 1;
+                } else {
+                    this.summary = summary.split('\n');
+                }
+            },
+            summaryOperate(type) {
+                if (type == 1) {
+                    this.showSummaryType = 1;
+                    this.summary = this.summaryPart;
+                } else {
+                    this.showSummaryType = 2;
+                    this.summary = this.summaryAll;
+                }
             }
         }
     }

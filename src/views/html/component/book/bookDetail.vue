@@ -82,7 +82,29 @@
             <el-col>
                 <div class="book-info"><span>图书简介</span></div>
                 <div class="book-tab" style="padding: 10px">
-                    <p v-if="data.summary.length > 0">{{ data.summary }}</p>
+                    <div v-if="summary.length > 0">
+                        <div v-if="showSummaryType == 0">
+                            <p v-for="(item, index) in summary" :key="index">
+                                <span>{{ item }}</span>
+                            </p>
+                        </div>
+                        <div v-if="showSummaryType == 1">
+                            <p v-for="(item, index) in summary" :key="index">
+                                <span v-if="index == summary.length - 1">{{ item }}...
+                                    <a @click="summaryOperate(2)" style="margin-left: 15px; color: rgb(0, 132, 255)">展开↓</a>
+                                </span>
+                                <span v-else>{{ item }}</span>
+                            </p>
+                        </div>
+                        <div v-if="showSummaryType == 2">
+                            <p v-for="(item, index) in summary" :key="index">
+                                <span v-if="index == summary.length - 1">{{ item }}
+                                    <a @click="summaryOperate(1)" style="margin-left: 15px; color: rgb(0, 132, 255)">收起↑</a>
+                                </span>
+                                <span v-else>{{ item }}</span>
+                            </p>
+                        </div>
+                    </div>
                     <div v-else style="text-align: center; padding: 12px"><span>暂无数据</span></div>
                 </div>
             </el-col>
@@ -106,21 +128,36 @@
                     </el-dropdown>
                 </div>
                 <div class="book-tab" style="padding: 10px">
-                    <el-row>
-                        <el-col>
-                            <el-tree ref="contentTree" node-key="id" :data="data.contentData" accordion
-                                :render-content="renderContent" @node-click="handleNodeClick" highlight-current></el-tree>
-                        </el-col>
-                    </el-row>
+                    <el-tree ref="contentTree" node-key="id" :data="data.contentData" accordion
+                        :render-content="renderContent" @node-click="handleNodeClick" highlight-current>
+                    </el-tree>
                     <div style="padding-top: 10px; border-bottom: 1px #ddd solid">
                         <span style="font-weight: 700">目录描述</span>
                     </div>
-                    <el-row>
-                        <el-col>
-                            <p v-if="contentDesc != ''">{{ contentDesc }}</p>
-                            <div v-else style="text-align: center; padding: 12px"><span>暂无数据</span></div>
-                        </el-col>
-                    </el-row>
+                    <div v-if="contentDesc.length > 0">
+                        <div v-if="showDescType == 0">
+                            <p v-for="(desc, index) in contentDesc" :key="index">
+                                <span>{{ desc }}</span>
+                            </p>
+                        </div>
+                        <div v-if="showDescType == 1">
+                            <p v-for="(desc, index) in contentDesc" :key="index">
+                                <span v-if="index == contentDesc.length - 1">{{ desc }}...
+                                    <a @click="descOperate(2)" style="margin-left: 15px; color: rgb(0, 132, 255)">展开↓</a>
+                                </span>
+                                <span v-else>{{ desc }}</span>
+                            </p>
+                        </div>
+                        <div v-if="showDescType == 2">
+                            <p v-for="(desc, index) in contentDesc" :key="index">
+                                <span v-if="index == contentDesc.length - 1">{{ desc }}
+                                    <a @click="descOperate(1)" style="margin-left: 15px; color: rgb(0, 132, 255)">收起↑</a>
+                                </span>
+                                <span v-else>{{ desc }}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div v-else style="text-align: center; padding: 12px"><span>暂无数据</span></div>
                 </div>
             </el-col>
         </el-row>
@@ -158,10 +195,19 @@
                 imgVisible: false,
                 defaultImg: defaultImg,
                 previewImgUrl: '',
-                contentDesc: ''
+                contentDescPart: [],
+                contentDescAll: [],
+                contentDesc: [],
+                showDescType: 0,
+                summaryPart: [],
+                summaryAll: [],
+                summary: [],
+                showSummaryType: 0,
+                showLength: 180
             }
         },
         created() {
+            this.handleSummary();
         },
         methods: {
             async previewImg(imgUrl) {
@@ -191,8 +237,55 @@
                     }, data.author)
 				]);
             },
+            handleSummary() {
+                this.showSummaryType = 0;
+                this.summary = [];
+                var summary = this.data.summary;
+                if (summary == "" || summary == null) {
+                    return;
+                }
+                if (summary.length > this.showLength) {
+                    this.summaryAll = summary.split('\n');
+                    this.summaryPart = summary.substring(0, this.showLength).split('\n');
+                    this.summary = this.summaryPart;
+                    this.showSummaryType = 1;
+                } else {
+                    this.summary = summary.split('\n');
+                }
+            },
+            summaryOperate(type) {
+                if (type == 1) {
+                    this.showSummaryType = 1;
+                    this.summary = this.summaryPart;
+                } else {
+                    this.showSummaryType = 2;
+                    this.summary = this.summaryAll;
+                }
+            },
             handleNodeClick(data) {
-                this.contentDesc = data.desc;
+                this.showDescType = 0;
+                this.contentDesc = [];
+                var desc = data.desc;
+                if (desc == "" || desc == null) {
+                    return;
+                }
+                if (desc.length > this.showLength) {
+                    this.contentDescAll = desc.split('\n');
+                    this.contentDescPart = desc.substring(0, this.showLength).split('\n');
+                    this.contentDesc = this.contentDescPart;
+                    this.showDescType = 1;
+                } else {
+                    this.contentDesc = desc.split('\n');
+                }
+            },
+            descOperate(type) {
+                if (type == 1) {
+                    this.showDescType = 1;
+                    this.contentDesc = this.contentDescPart;
+                } else {
+                    this.showDescType = 2;
+                    this.contentDesc = this.contentDescAll;
+                }
             },
             exportContent(type) {
                 var suffix = "";
